@@ -71,7 +71,7 @@ const Header = () => {
                 <img src="/images/nav-work.svg" alt="" />
                  <span>
                   Work
-                  {/* <img src="/images/down-icon.svg" alt="" /> */}
+                  
                 </span>
               </a>
 </Work>
@@ -87,7 +87,7 @@ const Container = styled.div`
   background-color: white;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   left: 0;
-  padding: 8px 24px;
+  padding: 5px 24px;
   position: fixed;
   top: 0;
   width: 100vw;
@@ -153,7 +153,9 @@ const Nav = styled.nav`
     left: 0;
     bottom: 0;
     background: white;
-    width: 100%;
+    width: 600px;
+    height: 75px;
+    
   }
 `;
 
@@ -185,7 +187,7 @@ const NavList = styled.li`
     display: flex;
     flex-direction: column;
     font-size: 12px;
-    font-weight: 400;
+    font-weight: 500;
     justify-content: center;
     line-height: 1.5;
     min-height: 52px;
@@ -198,7 +200,8 @@ const NavList = styled.li`
       align-items: center;
     }
     @media (max-width: 768px) {
-      min-width: 70px;
+      min-width: 78px;
+      
     }
   }
   &:hover,
