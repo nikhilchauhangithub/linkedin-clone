@@ -2,6 +2,9 @@
 
 import React from 'react'
 import styled from 'styled-components'
+import Left from './Left';
+import Main from './Main';
+import Right from './Right';
 
 const Home = () => {
   return (
@@ -12,6 +15,11 @@ const Home = () => {
 <h4><a>Are you Hiring, in a Hurry? -</a></h4>
 <p>LinkedIn is a business and employment-focused social media platform that works through websites and mobile apps </p>
       </Section>
+      <Layout>
+       <Left/>
+       <Main/>
+       <Right/>
+      </Layout>
     </Container>
   )
 }
@@ -60,6 +68,23 @@ p{
   color: #434649;
   font-weight: bold;
 }
+`;
+
+const Layout = styled.div`
+
+align-content: center;
+text-align: center;
+margin-top: 10px;
+display: grid;
+grid-template-areas: "left main right";
+
+@media (max-width: 768px) {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+   
+    }
 `;
 
 export default Home
