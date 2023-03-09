@@ -1,87 +1,86 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
 
 const Header = () => {
   return (
     <Container>
       <Content>
         <Logo>
-          <a href='/home'>
-            <img src='/images/home-logo.svg' alt='home-logo'/>
+          <a href="/home">
+            <img src="/images/home-logo.svg" alt="home-logo" />
           </a>
         </Logo>
         <Search>
           <div>
-              <input type="text" placeholder='Search' />
+            <input type="text" placeholder="Search" />
           </div>
           <SearchIcon>
-            <img src='/images/search-icon.svg' alt='search icon' />
+            <img src="/images/search-icon.svg" alt="search icon" />
           </SearchIcon>
         </Search>
         <Nav>
           <NavListWrap>
-<NavList className='active'>
-  <a href='/home'>
-    <img src='/images/nav-home.svg' alt='home icon'/>
-    <span>Home</span>
-  </a>
-</NavList>
+            <NavList className="active">
+              <a href="/home">
+                <img src="/images/nav-home.svg" alt="home icon" />
+                <span>Home</span>
+              </a>
+            </NavList>
 
-<NavList>
-  <a href='/home'>
-    <img src='/images/nav-network.svg' alt='home icon'/>
-    <span>My Network</span>
-  </a>
-</NavList>
+            <NavList>
+              <a href="/home">
+                <img src="/images/nav-network.svg" alt="home icon" />
+                <span>My Network</span>
+              </a>
+            </NavList>
 
-<NavList>
-  <a href='/home'>
-    <img src='/images/nav-jobs.svg' alt='home icon'/>
-    <span>Jobs</span>
-  </a>
-</NavList>
+            <NavList>
+              <a href="/home">
+                <img src="/images/nav-jobs.svg" alt="home icon" />
+                <span>Jobs</span>
+              </a>
+            </NavList>
 
-<NavList>
-  <a href='/home'>
-    <img src='/images/nav-messaging.svg' alt='home icon'/>
-    <span>Messaging</span>
-  </a>
-</NavList>
+            <NavList>
+              <a href="/home">
+                <img src="/images/nav-messaging.svg" alt="home icon" />
+                <span>Messaging</span>
+              </a>
+            </NavList>
 
-<NavList>
-  <a href='/home'>
-    <img src='/images/nav-notifications.svg' alt='home icon'/>
-    <span>Notifications</span>
-  </a>
-</NavList>
+            <NavList>
+              <a href="/home">
+                <img src="/images/nav-notifications.svg" alt="home icon" />
+                <span>Notifications</span>
+              </a>
+            </NavList>
 
-<User>
-<a href='/'>
-                <img src="https://media.licdn.com/dms/image/D4D03AQG-sScHLYZT_g/profile-displayphoto-shrink_100_100/0/1669051335552?e=1682553600&v=beta&t=vjwEBJQZ8FCb_031AgFo9mPDj9VzwEm2t5rOCEEvVZw" alt="" />
+            <User>
+              <a href="/">
+                <img
+                  src="https://media.licdn.com/dms/image/D4D03AQG-sScHLYZT_g/profile-displayphoto-shrink_100_100/0/1669051335552?e=1682553600&v=beta&t=vjwEBJQZ8FCb_031AgFo9mPDj9VzwEm2t5rOCEEvVZw"
+                  alt=""
+                />
                 <span>Me</span>
               </a>
 
               <SignOut>
-                <a href='/signout'>Sign Out</a>
+                <a href="/signout">Sign Out</a>
               </SignOut>
-</User>
+            </User>
 
-<Work>
-              <a href='/work'>
+            <Work>
+              <a href="/work">
                 <img src="/images/nav-work.svg" alt="" />
-                 <span>
-                  Work
-                  
-                </span>
+                <span>Work</span>
               </a>
-</Work>
-
+            </Work>
           </NavListWrap>
         </Nav>
       </Content>
     </Container>
-  )
-}
+  );
+};
 
 const Container = styled.div`
   background-color: white;
@@ -158,7 +157,6 @@ const Nav = styled.nav`
     background: white;
     width: 600px;
     height: 75px;
-    
   }
 `;
 
@@ -204,7 +202,6 @@ const NavList = styled.li`
     }
     @media (max-width: 768px) {
       min-width: 78px;
-      
     }
   }
   &:hover,
@@ -259,4 +256,4 @@ const Work = styled(User)`
   border-left: 1px solid rgba(0, 0, 0, 0.08);
 `;
 
-export default Header
+export default Header;

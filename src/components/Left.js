@@ -1,22 +1,19 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import React from "react";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 const Left = () => {
   return (
     <Container>
       <Artcard>
         <Userinfo>
-          <Cardbackground/>
+          <Cardbackground />
           <a>
-            <Photo/>
-          <WelcomeText>Welcome, there!</WelcomeText>
+            <Photo />
+            <WelcomeText>Welcome, there!</WelcomeText>
           </a>
           <a>
-            <AddPhotoText>
-              Add a photo
-            </AddPhotoText>
+            <AddPhotoText>Add a photo</AddPhotoText>
           </a>
-
         </Userinfo>
         <Widget>
           <a>
@@ -24,15 +21,15 @@ const Left = () => {
               <span>Connections</span>
               <span>Grow your network</span>
             </div>
-            <img src='/images/widget-icon.svg' />
+            <img src="/images/widget-icon.svg" />
           </a>
         </Widget>
         <Item>
-            <span>
-              <img src='/images/item-icon.svg' alt='' />
-              My Items
-            </span>
-          </Item>
+          <span>
+            <img src="/images/item-icon.svg" alt="" />
+            My Items
+          </span>
+        </Item>
       </Artcard>
 
       <CommunityCard>
@@ -42,7 +39,7 @@ const Left = () => {
         <a>
           <span>
             Events
-            <img src='/images/plus-icon.svg' alt='' />
+            <img src="/images/plus-icon.svg" alt="" />
           </span>
         </a>
         <a>
@@ -52,163 +49,134 @@ const Left = () => {
           <span>Discover more</span>
         </a>
       </CommunityCard>
-
     </Container>
-  )
-}
+  );
+};
 
-const Container =styled.div`
-grid-area: left;
-padding: 0px 15px 0px 5px;
-width: 300px;
-
-
-
-
+const Container = styled.div`
+  grid-area: left;
+  padding: 0px 15px 0px 5px;
+  width: 300px;
 `;
 
-const Artcard =styled.div`
-background-color: white;
-border-radius:8px;
-overflow: hidden;
-margin-bottom: 8px;
-transition: box-shadow 83ms;
-position: relative;
-box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.35);
-
+const Artcard = styled.div`
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 8px;
+  transition: box-shadow 83ms;
+  position: relative;
+  box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.35);
 `;
-const Userinfo =styled.div`
-padding: 12px 12px 16px;
-border: solid 1px rgba(0,0,0,0.15);
+const Userinfo = styled.div`
+  padding: 12px 12px 16px;
+  border: solid 1px rgba(0, 0, 0, 0.15);
 `;
-const Cardbackground =styled.div`
-background-image: url("/images/card-bg.svg");
-height: 70px;
-margin-bottom:5px;
-background-position: center;
-background-size: 430px;
-border-radius: 5px;
+const Cardbackground = styled.div`
+  background-image: url("/images/card-bg.svg");
+  height: 70px;
+  margin-bottom: 5px;
+  background-position: center;
+  background-size: 430px;
+  border-radius: 5px;
 `;
-const AddPhotoText =styled.div`
-font-size: 14px;
-color: #0a66c2;
-font-weight: 600;
-line-height: 18px;
-`;
-
-const Photo =styled.div`
-background-image: url("/images/photo.svg");
-height: 56px;
-width: 60px;
-box-sizing: border-box;
-background-color: white;
-background-repeat: no-repeat;
-border: solid 2px white;
-margin: -30px auto 15px;
-border-radius: 8px;
-
+const AddPhotoText = styled.div`
+  font-size: 14px;
+  color: #0a66c2;
+  font-weight: 600;
+  line-height: 18px;
 `;
 
-const WelcomeText=styled.text`
-font-weight: 700;
-color: rgba(0,0,0,0.9);
-`;
-
-const Widget =styled.div`
-border-bottom: solid 1px rgba(0,0,0,0.2);
-padding: 10px 20px 10px 20px;
-
-&>a{
-  justify-content: space-between;
-  display: flex;
-font-size: 11pt;
-/* align-items: center; */
-
-&:hover{
+const Photo = styled.div`
+  background-image: url("/images/photo.svg");
+  height: 56px;
+  width: 60px;
   box-sizing: border-box;
-  background-color: rgba(0,0,0,0.08);
-  border-radius: 4px;
-}
-
-div{
-  display: flex;
-  flex-direction: column;
-  text-align: start;
-  font-weight: bold;
-
-  span{
-    line-height: 1.3;
-
-    &:first-child{
-      color: rgba(0,0,0,0.6);
-    }
-
-    &:nth-child(2){
-      color: rgba(0,0,0,1);
-    }
-
-  }
-}
-
-}
-
+  background-color: white;
+  background-repeat: no-repeat;
+  border: solid 2px white;
+  margin: -30px auto 15px;
+  border-radius: 8px;
 `;
 
-const Item =styled.div`
-padding: 12px 12px 12px 18px;
-font-weight: bold;
-font-size: 11pt;
-text-align: start;
+const WelcomeText = styled.text`
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.9);
+`;
 
-span{
-  display: flex;
-  align-items: center;
-}
+const Widget = styled.div`
+  border-bottom: solid 1px rgba(0, 0, 0, 0.2);
+  padding: 10px 20px 10px 20px;
+  & > a {
+    justify-content: space-between;
+    display: flex;
+    font-size: 11pt;
+    /* align-items: center; */
+    &:hover {
+      box-sizing: border-box;
+      background-color: rgba(0, 0, 0, 0.08);
+      border-radius: 4px;
+    }
+    div {
+      display: flex;
+      flex-direction: column;
+      text-align: start;
+      font-weight: bold;
+      span {
+        line-height: 1.3;
+        &:first-child {
+          color: rgba(0, 0, 0, 0.6);
+        }
+        &:nth-child(2) {
+          color: rgba(0, 0, 0, 1);
+        }
+      }
+    }
+  }
+`;
 
-&:hover{
-  background-color: rgba(0,0,0,0.08);
-}
-
+const Item = styled.div`
+  padding: 12px 12px 12px 18px;
+  font-weight: bold;
+  font-size: 11pt;
+  text-align: start;
+  span {
+    display: flex;
+    align-items: center;
+  }
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+  }
 `;
 
 const CommunityCard = styled(Artcard)`
-padding: 8px;
-text-align: start;
-display: flex;
-flex-direction: column;
-
-a{
-  color: black;
-  padding: 4px 12px 4px 12px;
-  /* font-weight: 500; */
-  font-size: 14px;
-  
-
-&:hover{
-  color: #0a66c2;
-  font-weight: 600;
-}
-
-span{
+  padding: 8px;
+  text-align: start;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  line-height: 1.5;
+  flex-direction: column;
+  a {
+    color: black;
+    padding: 4px 12px 4px 12px;
+    /* font-weight: 500; */
+    font-size: 14px;
 
-}
-
-&:last-child{
-  color: rgba(0,0,0,0.6);
-  text-decoration: none;
-  border-top: solid 1px #d6cec2;
-  padding: 12px;
-}
-
-}
-
-
-
+    &:hover {
+      color: #0a66c2;
+      font-weight: 600;
+    }
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      line-height: 1.5;
+    }
+    &:last-child {
+      color: rgba(0, 0, 0, 0.6);
+      text-decoration: none;
+      border-top: solid 1px #d6cec2;
+      padding: 12px;
+    }
+  }
 `;
 
-
-export default Left
+export default Left;
