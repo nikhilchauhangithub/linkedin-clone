@@ -56,7 +56,6 @@ const Left = () => {
 const Container = styled.div`
   grid-area: left;
   padding: 0px 15px 0px 5px;
-  width: 300px;
 `;
 
 const Artcard = styled.div`
@@ -66,7 +65,13 @@ const Artcard = styled.div`
   margin-bottom: 8px;
   transition: box-shadow 83ms;
   position: relative;
+  width: 100%;
   box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.35);
+  @media (max-width: 768px) {
+    margin-bottom: 28px;
+    width: 450px;
+    line-height: 2;
+  }
 `;
 const Userinfo = styled.div`
   padding: 12px 12px 16px;
@@ -150,14 +155,13 @@ const Item = styled.div`
 `;
 
 const CommunityCard = styled(Artcard)`
-  padding: 8px;
   text-align: start;
   display: flex;
   flex-direction: column;
   a {
     color: black;
     padding: 4px 12px 4px 12px;
-    /* font-weight: 500; */
+
     font-size: 14px;
 
     &:hover {

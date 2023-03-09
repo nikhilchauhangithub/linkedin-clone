@@ -48,6 +48,7 @@ const Right = () => {
 
 const Container = styled.div`
   grid-area: right;
+  padding: 0px 20px 10px 20px;
 `;
 
 const FollowCard = styled.div`
@@ -60,11 +61,11 @@ const FollowCard = styled.div`
   border: none;
   box-shadow: 0 0 0 1px rgb(0 0 0 / 15%), 0 0 0 rgb(0 0 0 / 20%);
   padding: 10px;
-  width: 300px;
+  width: 100%;
 
   @media (max-width: 768px) {
     margin-bottom: 28px;
-    width: 295px;
+    width: 450px;
   }
 `;
 
