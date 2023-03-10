@@ -112,7 +112,8 @@ const Sharebox = styled(Commoncard)`
   display: flex;
   flex-direction: column;
   color: #958b7b;
-  margin: 0 0 8px;
+  margin-left: 15px;
+  margin-right: 15px;
   background: white;
 
   @media (max-width: 768px) {
@@ -175,13 +176,13 @@ const Sharebox = styled(Commoncard)`
 `;
 
 const Article = styled(Commoncard)`
-  padding: 0;
-  margin: 0 0 8px;
+  padding: 10px;
+  margin: 13px;
   overflow: visible;
 `;
 
 const SharedActor = styled.div`
-  padding: 15px;
+  padding: 10px;
 
   a {
     margin-right: 12px;
@@ -192,7 +193,7 @@ const SharedActor = styled.div`
 
     img {
       width: 48px;
-      border-radius: 50%;
+      border-radius: 8px;
     }
     & > div {
       display: flex;
@@ -210,7 +211,7 @@ const SharedActor = styled.div`
         }
 
         &:nth-child(n + 1) {
-          font-size: 12px;
+          font-size: 13px;
           color: rgba(0, 0, 0, 0.6);
         }
       }
@@ -224,24 +225,31 @@ const SharedActor = styled.div`
     border: none;
     outline: none;
     img {
-      padding-top: 10px;
+      padding-top: 13px;
       height: 17px;
     }
   }
 `;
 
-const Description = styled.div``;
+const Description = styled.div`
+  text-align: left;
+  padding-left: 5px;
+  position: relative;
+`;
 
 const SharedImg = styled.div`
   margin-top: 8px;
   width: 100%;
+  height: 100%;
   display: block;
   position: relative;
   background-color: #f9fafb;
+  border-radius: 8px;
   img {
     object-fit: contain;
     width: 100%;
     height: 100%;
+    border-radius: 8px;
   }
 `;
 const SocialCounts = styled.ul`
@@ -251,9 +259,7 @@ const SocialCounts = styled.ul`
   }
   line-height: 1.5;
   display: flex;
-  /* align-items: flex-start; */
-  /* overflow: auto; */
-  /* background: transparent; */
+
   margin: 0 16px;
   padding: 8px 0;
   border-bottom: 1px solid #e9e5df;

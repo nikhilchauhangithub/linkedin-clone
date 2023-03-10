@@ -56,6 +56,8 @@ const Left = () => {
 const Container = styled.div`
   grid-area: left;
   padding: 0px 15px 0px 5px;
+  margin-left: 15px;
+  margin-bottom: 15px;
 `;
 
 const Artcard = styled.div`
@@ -68,7 +70,7 @@ const Artcard = styled.div`
   width: 100%;
   box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.35);
   @media (max-width: 768px) {
-    margin-bottom: 28px;
+    margin-bottom: 8px;
     width: 450px;
     line-height: 2;
   }
@@ -127,6 +129,7 @@ const Widget = styled.div`
       flex-direction: column;
       text-align: start;
       font-weight: bold;
+      width: 300px;
       span {
         line-height: 1.3;
         &:first-child {
@@ -158,6 +161,7 @@ const CommunityCard = styled(Artcard)`
   text-align: start;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
   a {
     color: black;
     padding: 4px 12px 4px 12px;

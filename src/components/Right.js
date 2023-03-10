@@ -38,7 +38,7 @@ const Right = () => {
       </FollowCard>
       <BannerCard>
         <img
-          src="https://static-exp1.licdn.com/scds/common/u/images/promo/ads/li_evergreen_jobs_ad_300x250_v1.jpg"
+          src="https://images.unsplash.com/photo-1611944212129-29977ae1398c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGlua2VkaW58ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
           alt=""
         />
       </BannerCard>
@@ -49,6 +49,8 @@ const Right = () => {
 const Container = styled.div`
   grid-area: right;
   padding: 0px 20px 10px 20px;
+  margin-right: 20px;
+  margin-bottom: 40px;
 `;
 
 const FollowCard = styled.div`
@@ -126,12 +128,14 @@ const Recommendation = styled.a`
   display: flex;
   align-items: center;
   font-size: 14px;
+  width: 400px;
 `;
 
 const BannerCard = styled(FollowCard)`
   img {
+    height: 300px;
     width: 100%;
-    height: 100%;
+    border-radius: 8px;
   }
 `;
 export default Right;
