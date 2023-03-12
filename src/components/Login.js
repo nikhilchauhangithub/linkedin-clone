@@ -1,120 +1,117 @@
-import styled from "styled-components"
+import styled from "styled-components";
+import { connect } from "react-redux";
+import { signInAPI } from "../actions";
 
-const Login = () => {
+const Login = (props) => {
   return (
     <Container>
-        <Nav>
-            <a href="/">
-                <img src="/images/login-logo.svg" alt="linkedin logo" />
-            </a>
-            <div>
-                <Join>join</Join>
-                <SignIn>Sign in</SignIn>
-            </div>
-        </Nav>
-        <Section>
-            <Hero><h1>Welcome to your professional community</h1>
-            <img src="/images/login-hero.svg" alt="login page"/>
-            </Hero>
+      <Nav>
+        <a href="/">
+          <img src="/images/login-logo.svg" alt="linkedin logo" />
+        </a>
+        <div>
+          <Join>join</Join>
+          <SignIn>Sign in</SignIn>
+        </div>
+      </Nav>
+      <Section>
+        <Hero>
+          <h1>Welcome to your professional community</h1>
+          <img src="/images/login-hero.svg" alt="login page" />
+        </Hero>
 
-            <Form>
-                <Google>
-                    <img src="/images/google.svg" alt="google" />
-                    Sign in with Google
-                </Google> 
-            </Form>
-            
-        </Section>
+        <Form>
+          <Google onClick={() => props.signIn()}>
+            <img src="/images/google.svg" alt="google" />
+            Sign in with Google
+          </Google>
+        </Form>
+      </Section>
     </Container>
-  )
-}
+  );
+};
 
 const Container = styled.div`
-padding: 0px;
+  padding: 0px;
 `;
-const Nav =styled.div`
-   max-width: 1300px;
-   margin: auto;
-   padding: 12px 0 16px;
-   display: flex;
-   align-items: center;
-   position: relative;
-   justify-content: space-between;
-   flex-wrap: nowrap;
-   
+const Nav = styled.div`
+  max-width: 1300px;
+  margin: auto;
+  padding: 12px 0 16px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: space-between;
+  flex-wrap: nowrap;
 
-   & > a{
+  & > a {
     width: 150px;
     height: 36px;
-    
-    @media (max-width: 768px){
-        padding: 0 5px;
 
+    @media (max-width: 768px) {
+      padding: 0 5px;
     }
-   }
-     `;
-
-const Join =styled.a`
-font-size: 16px;
-border-radius: 4px;
-text-decoration: none;
-color: rgba(0,0,0,0.6);
-padding: 12px;
-text-transform: uppercase;
-letter-spacing: 1.5px;
-cursor: pointer;
-font-weight: bold;
-margin-right: 12px;
-
-&:hover{
-    background-color: rgba(0,0,0,0.08);
-    color: rgba(0,0,0,0.8);
-}
+  }
 `;
 
-const SignIn =styled.a`
-padding: 10px 15px;
-font-size: 16px;
-border: solid 1px #0a66c2;
-border-radius: 20px;
-letter-spacing: 1px;
-cursor: pointer;
-color: #0a66c2;
-font-weight: 600;
-text-decoration: none;
-&:hover{
+const Join = styled.a`
+  font-size: 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.6);
+  padding: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-right: 12px;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+    color: rgba(0, 0, 0, 0.8);
+  }
+`;
+
+const SignIn = styled.a`
+  padding: 10px 15px;
+  font-size: 16px;
+  border: solid 1px #0a66c2;
+  border-radius: 20px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  color: #0a66c2;
+  font-weight: 600;
+  text-decoration: none;
+  &:hover {
     border: solid 2px #0a66c2;
-    background-color: rgba(112,181,249,0.15);
-}
+    background-color: rgba(112, 181, 249, 0.15);
+  }
 `;
 
-const Section =styled.section`
-display: flex;
-align-content: start;
-min-height: 700px;
-padding-bottom: 138px;
-padding-top: 40px;
-position: relative;
-padding: 60px 0;
-flex-wrap: wrap;
-width: 100%;
-max-width: 1128px;
-align-items: center;
-margin: auto;
+const Section = styled.section`
+  display: flex;
+  align-content: start;
+  min-height: 700px;
+  padding-bottom: 138px;
+  padding-top: 40px;
+  position: relative;
+  padding: 60px 0;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1128px;
+  align-items: center;
+  margin: auto;
 
-@media (max-width:768px) {
+  @media (max-width: 768px) {
     margin: auto;
     min-height: 0px;
-
-}
-
+  }
 `;
 
-
-const Hero=styled.div`
-width: 100%;
-h1{
-    padding-bottom:0;
+const Hero = styled.div`
+  width: 100%;
+  h1 {
+    padding-bottom: 0;
     width: 55%;
     font-size: 58px;
     color: #2977c9;
@@ -123,39 +120,37 @@ h1{
     font-weight: bold;
 
     @media (max-width: 768px) {
-        text-align: center;
-        font-size: 18px;
-        width: 100%;
-        line-height: 2;
+      text-align: center;
+      font-size: 18px;
+      width: 100%;
+      line-height: 2;
     }
-}
-img{
+  }
+  img {
     width: 700px;
-height: 670px;
-position: absolute;
-bottom: -2px;
-right: -150px;
+    height: 670px;
+    position: absolute;
+    bottom: -2px;
+    right: -150px;
 
-@media (max-width: 768px) {
-    top: 200px;
-    width: initial;
-    position: initial;
-    height: initial;
-    
-}
-}
-
+    @media (max-width: 768px) {
+      top: 200px;
+      width: initial;
+      position: initial;
+      height: initial;
+    }
+  }
 `;
 
-const Form =styled.div`
-margin-top: 100px;
-width: 408px;
-@media (max-width: 768px) {
+const Form = styled.div`
+  margin-top: 100px;
+  width: 408px;
+  @media (max-width: 768px) {
     margin-top: 10px;
-}
+  }
 `;
 
-const Google =styled.button`
+const Google = styled.button`
   display: flex;
   justify-content: center;
   background-color: #fff;
@@ -176,6 +171,12 @@ const Google =styled.button`
   }
 `;
 
+const mapStateToProps = (state) => {
+  return {};
+};
 
+const mapDispatchToProps = (dispatch) => ({
+  signIn: () => dispatch(signInAPI()),
+});
 
-export default Login
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
