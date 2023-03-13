@@ -2,8 +2,14 @@ import styled from "styled-components";
 import { connect } from "react-redux";
 import { signInAPI } from "../actions";
 import { Navigate } from "react-router-dom";
+import { useEffect } from "react";
+import { getUserAuth } from "../actions";
 
 const Login = (props) => {
+  useEffect(() => {
+    getUserAuth();
+  }, []);
+
   return (
     <Container>
       {props.user && <Navigate to="/home" />}

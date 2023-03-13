@@ -3,24 +3,29 @@ import styled from "styled-components";
 import Left from "./Left";
 import Main from "./Main";
 import Right from "./Right";
+import { Navigate } from "react-router-dom";
+import { connect } from "react-redux";
 
-const Home = () => {
+const Home = (props) => {
   return (
     <Container>
-      <Section>
-        <h4>
-          <a>Are you Hiring, in a Hurry? -</a>
-        </h4>
-        <p>
-          LinkedIn is a business and employment-focused social media platform
-          that works through websites and mobile apps{" "}
-        </p>
-      </Section>
-      <Layout>
-        <Left />
-        <Main />
-        <Right />
-      </Layout>
+      {!props.user && <Navigate to="/" />}
+      <Content>
+        <Section>
+          <h4>
+            <a>Are you Hiring, in a Hurry? -</a>
+          </h4>
+          <p>
+            LinkedIn is a business and employment-focused social media platform
+            that works through websites and mobile apps{" "}
+          </p>
+        </Section>
+        <Layout>
+          <Left />
+          <Main />
+          <Right />
+        </Layout>
+      </Content>
     </Container>
   );
 };
@@ -75,4 +80,10 @@ const Layout = styled.div`
   }
 `;
 
-export default Home;
+const mapStateToProps = (state) => {
+  return {
+    user: state.userState.user,
+  };
+};
+
+export default connect(mapStateToProps)(Home);

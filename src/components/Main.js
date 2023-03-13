@@ -1,11 +1,16 @@
 import React from "react";
 import styled from "styled-components";
-const Main = () => {
+import { connect } from "react-redux";
+const Main = (props) => {
   return (
     <Container>
       <Sharebox>
         <div>
-          <img src="/images/user.svg" alt="" />
+          {props.user && props.user.photoURL ? (
+            <img src={props.user.photoURL} alt="" />
+          ) : (
+            <img src="/images/user.svg" alt="" />
+          )}
           <button>Start a post</button>
         </div>
 
@@ -112,12 +117,12 @@ const Sharebox = styled(Commoncard)`
   display: flex;
   flex-direction: column;
   color: #958b7b;
-  margin-left: 15px;
-  margin-right: 15px;
+  /* margin-left: 15px;
+  margin-right: 15px; */
   background: white;
 
   @media (max-width: 768px) {
-    width: 470px;
+    width: 100%;
   }
 
   div {
@@ -309,4 +314,11 @@ const SocialActions = styled.div`
   }
 `;
 
-export default Main;
+const mapStateToProps = (state) => {
+  return {
+    user: state.userState.user,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => ({});
+export default connect(mapStateToProps, mapDispatchToProps)(Main);
