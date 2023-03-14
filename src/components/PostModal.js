@@ -3,6 +3,17 @@ import { useState } from "react";
 
 const PostModal = (props) => {
   const [editorText, setEditorText] = useState("");
+  const [shareImage, setShareImage] = useState("");
+
+  const handleChange = (e) => {
+    const image = e.target.files[0];
+
+    if (image === "" || image === undefined) {
+      alert(`not an image, the file is a ${typeof image}`);
+      return;
+    }
+    setShareImage(image);
+  };
 
   const reset = (e) => {
     setEditorText("");
@@ -31,7 +42,7 @@ const PostModal = (props) => {
                 onChange={(e) => setEditorText(e.target.value)}
                 placeholder="What do you want to talk about"
                 autoFocus={true}
-              ></textarea>
+              />
             </SharedContent>
             <ShareCreation>
               <AttachAssets>
@@ -49,7 +60,9 @@ const PostModal = (props) => {
                 </AssetButton>
               </ShareComment>
 
-              <PostButton>Post</PostButton>
+              <PostButton disabled={!editorText ? true : false}>
+                Post
+              </PostButton>
             </ShareCreation>
           </Content>
         </Container>
