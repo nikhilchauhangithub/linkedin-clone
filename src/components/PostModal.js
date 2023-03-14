@@ -36,13 +36,24 @@ const PostModal = (props) => {
                 <img src="/images/user.svg" alt="" />
                 <span>Name</span>
               </UserInfo>
-
-              <textarea
-                value={editorText}
-                onChange={(e) => setEditorText(e.target.value)}
-                placeholder="What do you want to talk about"
-                autoFocus={true}
-              />
+              <Editor>
+                <textarea
+                  value={editorText}
+                  onChange={(e) => setEditorText(e.target.value)}
+                  placeholder="What do you want to talk about"
+                  autoFocus={true}
+                />
+                <UploadImage>
+                  <input
+                    type="file"
+                    accept="image/gif, image/jpeg, image/png"
+                    name="image"
+                    id="file"
+                    onChange={handleChange}
+                  />
+                  {shareImage && <img src={URL.createObjectURL(shareImage)} />}
+                </UploadImage>
+              </Editor>
             </SharedContent>
             <ShareCreation>
               <AttachAssets>
@@ -86,15 +97,16 @@ const Container = styled.div`
 
 const Content = styled.div`
   background-color: white;
-  width: 100%;
+  width: 500px;
   max-height: 90%;
   overflow: initial;
   border-radius: 5px;
   position: relative;
   display: flex;
   flex-direction: column;
-  top: 32px;
-  margin: 0 auto;
+
+  margin: auto;
+  justify-content: center;
 `;
 
 const Header = styled.div`
@@ -128,12 +140,6 @@ const SharedContent = styled.div`
   vertical-align: baseline;
   background: none;
   padding: 8px 12px;
-  textarea {
-    border-radius: 8px;
-    padding-inline: 5px;
-    height: 90px;
-    resize: none;
-  }
 `;
 
 const UserInfo = styled.div`
@@ -216,6 +222,29 @@ const PostButton = styled.button`
   outline: none;
   &:hover {
     background: ${(props) => (props.disabled ? "#b8b8b8" : "#004182")};
+  }
+`;
+
+const Editor = styled.div`
+  textarea {
+    border-radius: 8px;
+    padding-inline: 5px;
+    height: 90px;
+    resize: none;
+    border: solid 2px rgba(0, 0, 0, 0.8);
+    width: 390px;
+    align-items: center;
+    justify-content: center;
+  }
+`;
+
+const UploadImage = styled.div`
+  padding: 10px;
+  text-align: center;
+
+  width: 400px;
+  img {
+    width: 100%;
   }
 `;
 
