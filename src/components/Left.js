@@ -167,9 +167,7 @@ const CommunityCard = styled(Artcard)`
   a {
     color: black;
     padding: 4px 12px 4px 12px;
-
     font-size: 14px;
-
     &:hover {
       color: #0a66c2;
       font-weight: 600;

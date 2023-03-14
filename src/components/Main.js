@@ -1,7 +1,30 @@
 import React from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
+import PostModal from "./PostModal";
+import { useState } from "react";
+
 const Main = (props) => {
+  const [showModal, setShowModal] = useState("close");
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    if (e.target !== e.currentTarget) {
+      return;
+    }
+
+    switch (showModal) {
+      case "open":
+        setShowModal("close");
+        break;
+      case "close":
+        setShowModal("open");
+        break;
+      default:
+        setShowModal("close");
+    }
+  };
+
   return (
     <Container>
       <Sharebox>
@@ -11,7 +34,7 @@ const Main = (props) => {
           ) : (
             <img src="/images/user.svg" alt="" />
           )}
-          <button>Start a post</button>
+          <button onClick={handleClick}>Start a post</button>
         </div>
 
         <div>
@@ -95,6 +118,7 @@ const Main = (props) => {
           </SocialActions>
         </Article>
       </div>
+      <PostModal showModal={showModal} handleClick={handleClick} />
     </Container>
   );
 };
@@ -119,12 +143,12 @@ const Sharebox = styled(Commoncard)`
   color: #958b7b;
   /* margin-left: 15px;
   margin-right: 15px; */
+  margin-left: auto;
+  margin-right: auto;
   background: white;
-
   @media (max-width: 768px) {
     width: 100%;
   }
-
   div {
     button {
       outline: none;
@@ -142,7 +166,6 @@ const Sharebox = styled(Commoncard)`
       align-items: center;
       padding: 8px 16px 0px 16px;
       flex-wrap: wrap;
-
       img {
         width: 48px;
         border-radius: 50%;
@@ -158,12 +181,10 @@ const Sharebox = styled(Commoncard)`
         text-align: left;
       }
     }
-
     &:nth-child(2) {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-around;
-
       button {
         border-radius: 8px;
         color: #70b5f9;
@@ -188,14 +209,12 @@ const Article = styled(Commoncard)`
 
 const SharedActor = styled.div`
   padding: 10px;
-
   a {
     margin-right: 12px;
     flex-grow: 1;
     overflow: hidden;
     display: flex;
     text-decoration: none;
-
     img {
       width: 48px;
       border-radius: 8px;
@@ -214,7 +233,6 @@ const SharedActor = styled.div`
           font-weight: 700;
           color: rgba(0, 0, 0, 1);
         }
-
         &:nth-child(n + 1) {
           font-size: 13px;
           color: rgba(0, 0, 0, 0.6);
@@ -264,7 +282,6 @@ const SocialCounts = styled.ul`
   }
   line-height: 1.5;
   display: flex;
-
   margin: 0 16px;
   padding: 8px 0;
   border-bottom: 1px solid #e9e5df;
@@ -297,7 +314,6 @@ const SocialActions = styled.div`
     border: none;
     background: transparent;
     padding: 5px;
-
     &:hover {
       background-color: rgba(0, 0, 0, 0.15);
     }
@@ -305,7 +321,6 @@ const SocialActions = styled.div`
       height: 20px;
       width: 30px;
     }
-
     @media (max-width: 768px) {
       span {
         margin-left: 8px;

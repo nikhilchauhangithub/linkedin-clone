@@ -64,7 +64,6 @@ const FollowCard = styled.div`
   box-shadow: 0 0 0 1px rgb(0 0 0 / 15%), 0 0 0 rgb(0 0 0 / 20%);
   padding: 10px;
   width: 100%;
-
   @media (max-width: 768px) {
     margin-bottom: 28px;
     width: 450px;
@@ -82,7 +81,6 @@ const Title = styled.div`
 
 const FeedList = styled.ul`
   margin-top: 16px;
-
   li {
     display: flex;
     align-items: center;
@@ -128,12 +126,12 @@ const Recommendation = styled.a`
   display: flex;
   align-items: center;
   font-size: 14px;
-  width: 400px;
+  width: 100%;
 `;
 
 const BannerCard = styled(FollowCard)`
   img {
-    height: 300px;
+    height: 100%;
     width: 100%;
     border-radius: 8px;
   }
