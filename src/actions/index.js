@@ -81,6 +81,23 @@ export function postArticleAPI(payload) {
           });
         }
       );
+    } else if (payload.video) {
+      db.collection("articles").add({
+        actor: {
+          description: payload.user.email,
+          title: payload.user.displayName,
+          date: payload.timestamp,
+          image: payload.user.photoURL,
+        },
+        video: payload.video,
+        sharedImg: "",
+        likes: {
+          count: 0,
+          whoLiked: [],
+        },
+        comments: 0,
+        description: payload.description,
+      });
     }
   };
 }

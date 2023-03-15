@@ -1,12 +1,10 @@
 import { useState } from "react";
 import ReactPlayer from "react-player";
 import { connect } from "react-redux";
-<<<<<<< HEAD
-=======
+
 import firebase from "firebase";
 import styled from "styled-components";
 import { postArticleAPI } from "../actions";
->>>>>>> 8c4fc8a (image upload)
 
 const PostModal = (props) => {
   const [editorText, setEditorText] = useState("");
@@ -55,12 +53,6 @@ const PostModal = (props) => {
     setShareImage("");
     props.handleClick(e);
   };
-
-  function switchAssetArea(area) {
-    setShareImage("");
-    setVideoLink("");
-    setAssetArea(area);
-  }
 
   return (
     <>
@@ -332,14 +324,10 @@ const mapStateToProps = (state) => {
   };
 };
 
-<<<<<<< HEAD
-const mapDispatchToProps = (state) => ({});
-=======
 const mapDispatchToProps = (dispatch) => {
   return {
     postArticle: (payload) => dispatch(postArticleAPI(payload)),
   };
 };
->>>>>>> 8c4fc8a (image upload)
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostModal);
