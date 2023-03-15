@@ -58,7 +58,8 @@ const Main = (props) => {
           </button>
         </div>
       </Sharebox>
-      <div>
+      <Content>
+        {props.loading && <img src="./images/spin-loader.svg" />}
         <Article>
           <SharedActor>
             <a>
@@ -119,7 +120,7 @@ const Main = (props) => {
             </button>
           </SocialActions>
         </Article>
-      </div>
+      </Content>
       <PostModal showModal={showModal} handleClick={handleClick} />
     </Container>
   );
@@ -331,8 +332,17 @@ const SocialActions = styled.div`
   }
 `;
 
+const Content = styled.div`
+  text-align: center;
+
+  & > img {
+    width: 30px;
+  }
+`;
+
 const mapStateToProps = (state) => {
   return {
+    loading: state.articleState.loading,
     user: state.userState.user,
   };
 };
