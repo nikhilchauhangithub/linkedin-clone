@@ -34,7 +34,9 @@ const Main = (props) => {
           ) : (
             <img src="/images/user.svg" alt="" />
           )}
-          <button onClick={handleClick}>Start a post</button>
+          <button onClick={handleClick} disabled={props.loading ? true : false}>
+            Start a post
+          </button>
         </div>
 
         <div>

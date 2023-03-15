@@ -1,18 +1,18 @@
 import { auth, provider, storage } from "../firebase";
 import db from "../firebase";
-import { SET_USER } from "./actionType";
+import { SET_USER, SET_LOADING_STATUS } from "./actionType";
 
 export const setUser = (payload) => ({
   type: SET_USER,
   user: payload,
 });
 
-// export function setLoading(status) {
-//   return {
-//     type: SET_LOADING_STATUS,
-//     status: status,
-//   };
-// }
+export function setLoading(status) {
+  return {
+    type: SET_LOADING_STATUS,
+    status: status,
+  };
+}
 
 export function signInAPI() {
   return (dispatch) => {
@@ -91,10 +91,6 @@ export function postArticleAPI(payload) {
         },
         video: payload.video,
         sharedImg: "",
-        likes: {
-          count: 0,
-          whoLiked: [],
-        },
         comments: 0,
         description: payload.description,
       });
