@@ -1,7 +1,6 @@
 import { useState } from "react";
 import ReactPlayer from "react-player";
 import { connect } from "react-redux";
-
 import firebase from "firebase";
 import styled from "styled-components";
 import { postArticleAPI } from "../actions";

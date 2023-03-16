@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Home from "./components/Home";
 import { connect } from "react-redux";
 import { getUserAuth } from "./actions";
+import { useEffect } from "react";
 
 function App() {
   return (

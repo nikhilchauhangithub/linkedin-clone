@@ -113,7 +113,6 @@ export function getArticlesAPI() {
       .orderBy("actor.date", "desc")
       .onSnapshot((snapshot) => {
         payload = snapshot.docs.map((doc) => doc.data());
-        console.log(payload);
         dispatch(getArticles(payload));
       });
   };
