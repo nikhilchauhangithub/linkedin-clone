@@ -2,7 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import PostModal from "./PostModal";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { getArticlesAPI } from "../actions";
 
 const Main = (props) => {
   const [showModal, setShowModal] = useState("close");
@@ -26,103 +27,121 @@ const Main = (props) => {
   };
 
   return (
-    <Container>
-      <Sharebox>
-        <div>
-          {props.user && props.user.photoURL ? (
-            <img src={props.user.photoURL} alt="" />
-          ) : (
-            <img src="/images/user.svg" alt="" />
-          )}
-          <button onClick={handleClick} disabled={props.loading ? true : false}>
-            Start a post
-          </button>
-        </div>
-
-        <div>
-          <button>
-            <img src="/images/photo-icon.svg" alt="" />
-            <span>Photo</span>
-          </button>
-          <button>
-            <img src="/images/video-icon.svg" alt="" />
-            <span>Video</span>
-          </button>
-          <button>
-            <img src="/images/event-icon.svg" alt="" />
-            <span>Events</span>
-          </button>
-          <button>
-            <img src="/images/article-icon.svg" alt="" />
-            <span>Write article</span>
-          </button>
-        </div>
-      </Sharebox>
-      <Content>
-        {props.loading && <img src="./images/spin-loader.svg" />}
-        <Article>
-          <SharedActor>
-            <a>
-              <img src="/images/user.svg" alt="" />
-              <div>
-                <span>Title</span>
-                <span>Info</span>
-                <span>Date</span>
-              </div>
-            </a>
-            <button>
-              <img src="/images/ellipsis.svg" alt="" />
-            </button>
-          </SharedActor>
-          <Description>Description</Description>
-          <SharedImg>
-            <a>
-              <img src="\images\shared-image.jpg" alt="" />
-            </a>
-          </SharedImg>
-          <SocialCounts>
-            <li>
-              <button>
-                <img
-                  src="https://www.svgrepo.com/show/499778/like.svg"
-                  alt=""
-                />
-                <img
-                  src="https://www.svgrepo.com/show/404975/clapping-hands.svg"
-                  alt=""
-                />
-                <span>80</span>
+    <>
+      {props.articles.length === 0 ? (
+        <p>There are no articles</p>
+      ) : (
+        <Container>
+          <Sharebox>
+            <div>
+              {props.user && props.user.photoURL ? (
+                <img src={props.user.photoURL} alt="" />
+              ) : (
+                <img src="/images/user.svg" alt="" />
+              )}
+              <button
+                onClick={handleClick}
+                disabled={props.loading ? true : false}
+              >
+                Start a post
               </button>
-            </li>
-            <li>
-              <a>8 comments</a>
-            </li>
-          </SocialCounts>
-          <SocialActions>
-            <button>
-              <img src="https://www.svgrepo.com/show/499778/like.svg" alt="" />
-              <span>Like</span>
-            </button>
-            <button>
-              <img src="https://www.svgrepo.com/show/499759/edit.svg" alt="" />
-              <span>Comments</span>
-            </button>
-            <button>
-              <img src="https://www.svgrepo.com/show/499806/share.svg" alt="" />
-              <span>Share</span>
-            </button>
-            <button>
-              <img
-                src="https://www.svgrepo.com/show/343522/telegram-communication-chat-interaction-network-connection.svg"
-                alt=""
-              />
-              <span>Send</span>
-            </button>
-          </SocialActions>
-        </Article>
-      </Content>
-      <PostModal showModal={showModal} handleClick={handleClick} />
-    </Container>
+            </div>
+
+            <div>
+              <button>
+                <img src="/images/photo-icon.svg" alt="" />
+                <span>Photo</span>
+              </button>
+              <button>
+                <img src="/images/video-icon.svg" alt="" />
+                <span>Video</span>
+              </button>
+              <button>
+                <img src="/images/event-icon.svg" alt="" />
+                <span>Events</span>
+              </button>
+              <button>
+                <img src="/images/article-icon.svg" alt="" />
+                <span>Write article</span>
+              </button>
+            </div>
+          </Sharebox>
+          <Content>
+            {props.loading && <img src="./images/spin-loader.svg" />}
+            <Article>
+              <SharedActor>
+                <a>
+                  <img src="/images/user.svg" alt="" />
+                  <div>
+                    <span>Title</span>
+                    <span>Info</span>
+                    <span>Date</span>
+                  </div>
+                </a>
+                <button>
+                  <img src="/images/ellipsis.svg" alt="" />
+                </button>
+              </SharedActor>
+              <Description>Description</Description>
+              <SharedImg>
+                <a>
+                  <img src="\images\shared-image.jpg" alt="" />
+                </a>
+              </SharedImg>
+              <SocialCounts>
+                <li>
+                  <button>
+                    <img
+                      src="https://www.svgrepo.com/show/499778/like.svg"
+                      alt=""
+                    />
+                    <img
+                      src="https://www.svgrepo.com/show/404975/clapping-hands.svg"
+                      alt=""
+                    />
+                    <span>80</span>
+                  </button>
+                </li>
+                <li>
+                  <a>8 comments</a>
+                </li>
+              </SocialCounts>
+              <SocialActions>
+                <button>
+                  <img
+                    src="https://www.svgrepo.com/show/499778/like.svg"
+                    alt=""
+                  />
+                  <span>Like</span>
+                </button>
+                <button>
+                  <img
+                    src="https://www.svgrepo.com/show/499759/edit.svg"
+                    alt=""
+                  />
+                  <span>Comments</span>
+                </button>
+                <button>
+                  <img
+                    src="https://www.svgrepo.com/show/499806/share.svg"
+                    alt=""
+                  />
+                  <span>Share</span>
+                </button>
+                <button>
+                  <img
+                    src="https://www.svgrepo.com/show/343522/telegram-communication-chat-interaction-network-connection.svg"
+                    alt=""
+                  />
+                  <span>Send</span>
+                </button>
+              </SocialActions>
+            </Article>
+          </Content>
+          <PostModal showModal={showModal} handleClick={handleClick} />
+        </Container>
+      )}
+    </>
   );
 };
 
@@ -344,8 +363,11 @@ const mapStateToProps = (state) => {
   return {
     loading: state.articleState.loading,
     user: state.userState.user,
+    articles: state.articleState.articles,
   };
 };
 
-const mapDispatchToProps = (dispatch) => ({});
+const mapDispatchToProps = (dispatch) => ({
+  getArticlesAPI: () => dispatch(getArticlesAPI()),
+});
 export default connect(mapStateToProps, mapDispatchToProps)(Main);
