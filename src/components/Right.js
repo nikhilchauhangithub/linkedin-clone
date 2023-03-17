@@ -48,9 +48,6 @@ const Right = () => {
 
 const Container = styled.div`
   grid-area: right;
-  padding: 0px 20px 10px 20px;
-  margin-right: 20px;
-  margin-bottom: 40px;
 `;
 
 const FollowCard = styled.div`
@@ -58,20 +55,16 @@ const FollowCard = styled.div`
   overflow: hidden;
   margin-bottom: 8px;
   background-color: #fff;
-  border-radius: 8px;
+  border-radius: 5px;
   position: relative;
   border: none;
+  justify-content: left baseline;
   box-shadow: 0 0 0 1px rgb(0 0 0 / 15%), 0 0 0 rgb(0 0 0 / 20%);
-  padding: 10px;
-  width: 100%;
-  @media (max-width: 768px) {
-    margin-bottom: 28px;
-    width: 450px;
-  }
+  padding: 12px;
 `;
 
 const Title = styled.div`
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: space-between;
   font-size: 16px;
@@ -87,7 +80,6 @@ const FeedList = styled.ul`
     margin: 12px 0;
     position: relative;
     font-size: 14px;
-    margin-left: -20px;
     & > div {
       display: flex;
       flex-direction: column;
@@ -126,14 +118,12 @@ const Recommendation = styled.a`
   display: flex;
   align-items: center;
   font-size: 14px;
-  width: 100%;
 `;
 
 const BannerCard = styled(FollowCard)`
   img {
-    height: 100%;
     width: 100%;
-    border-radius: 8px;
+    height: 100%;
   }
 `;
 export default Right;

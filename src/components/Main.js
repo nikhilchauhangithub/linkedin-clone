@@ -140,6 +140,8 @@ const Main = (props) => {
 
 const Container = styled.div`
   grid-area: main;
+  margin-left: 15px;
+  margin-right: 15px;
 `;
 
 const Commoncard = styled.div`
@@ -147,40 +149,34 @@ const Commoncard = styled.div`
   overflow: hidden;
   margin-bottom: 8px;
   background-color: #fff;
-  border-radius: 8px;
+  border-radius: 5px;
   position: relative;
   border: none;
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 15%), 0 0 0 rgb(0 0 0 / 20%);
 `;
 
 const Sharebox = styled(Commoncard)`
   display: flex;
   flex-direction: column;
+  margin: 0 0 8px;
   color: #958b7b;
-
-  margin-left: auto;
-  margin-right: auto;
-  background: white;
-  width: 100%;
-  @media (max-width: 768px) {
-    width: 100%;
-  }
   div {
     button {
       outline: none;
       color: rgba(0, 0, 0, 0.6);
+      font-size: 14px;
       line-height: 1.5;
       min-height: 48px;
-      background: transparent;
-      border: none;
       display: flex;
       align-items: center;
+      border: none;
+      background-color: transparent;
       font-weight: 600;
     }
     &:first-child {
       display: flex;
       align-items: center;
-      padding: 8px 16px 0px 16px;
-      flex-wrap: wrap;
+      padding: 8px 16px;
       img {
         width: 48px;
         border-radius: 50%;
@@ -189,10 +185,9 @@ const Sharebox = styled(Commoncard)`
       button {
         margin: 4px 0;
         flex-grow: 1;
-        border-radius: 35px;
         padding-left: 16px;
-        border: 1px solid rgba(0, 0, 0, 0.4);
-        background-color: white;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        border-radius: 35px;
         text-align: left;
       }
     }
@@ -200,16 +195,10 @@ const Sharebox = styled(Commoncard)`
       display: flex;
       flex-wrap: wrap;
       justify-content: space-around;
+      padding-bottom: 4px;
       button {
-        border-radius: 8px;
-        color: #70b5f9;
         img {
-          height: 25px;
-          width: 30px;
-        }
-        &:hover {
-          background-color: rgba(0, 0, 0, 0.15);
-          color: #0a66c2;
+          margin: 0 4px 0 -2px;
         }
       }
     }
@@ -219,7 +208,7 @@ const Sharebox = styled(Commoncard)`
 const Article = styled(Commoncard)`
   padding: 10px;
   margin: 13px;
-  overflow: visible;
+  /* overflow: visible; */
 `;
 
 const SharedActor = styled.div`
@@ -270,24 +259,18 @@ const SharedActor = styled.div`
 `;
 
 const Description = styled.div`
+  padding: 0 16px;
+  overflow: hidden;
+  font-size: 14px;
   text-align: left;
-  padding-left: 5px;
-  position: relative;
 `;
 
 const SharedImg = styled.div`
-  margin-top: 8px;
-  width: 100%;
-  height: 100%;
-  display: block;
-  position: relative;
+  margin: 8px 16px 0;
   background-color: #f9fafb;
-  border-radius: 8px;
   img {
-    object-fit: contain;
     width: 100%;
     height: 100%;
-    border-radius: 8px;
   }
 `;
 const SocialCounts = styled.ul`
@@ -346,9 +329,14 @@ const SocialActions = styled.div`
 
 const Content = styled.div`
   text-align: center;
+  height: 50px;
+  width: 100%;
+  border-radius: 8px;
 
   & > img {
-    width: 30px;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
   }
 `;
 
